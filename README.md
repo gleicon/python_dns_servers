@@ -29,10 +29,10 @@ python tx_dns.tac
 test and usage
 ==============
 
-$ sudo python gevent_dns.py
+    $ sudo python gevent_dns.py
 
-$ dig google.com
-$ dig @127.0.0.1 google.com
-$ python dns_cli.py add google.com 127.0.0.1
-$ dig @127.0.0.1 google.com
+    $ dig google.com
+    $ dig @127.0.0.1 google.com
+    $ python dns_cli.py add google.com 127.0.0.1
+    $ dig @127.0.0.1 google.com
 
