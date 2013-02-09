@@ -1,20 +1,38 @@
 Python, DNS and Redis
 
-Simple servers to deliver customized DNS data. These servers rely on Redis as storage backend.
 
-Both of them rely on google's dns as fallback
+About
+=====
+Simple servers to deliver customized DNS data. These servers rely on Redis as storage backend. 
+If the data isn't on redis, they will use the configured DNS to resolve and answer back.
+These servers can be used to intercept queries, test devices that have no accessible resolv.conf, etc
+There are two versions with gevent or twisted. Make sure the user you run these daemons can bind to port 53.
+
+
+cli
+===
+There is a CLI to ease inserting new hosts
+
+    python dns_cli.py add host ip
+    python dns_cli.py del host
+
 
 gevent version
 ==============
-gevent_dns.py
-
-to create a new domain:
-    set IP:name ip_addr
-    set TXT:name txtfield
+python gevent_dns.py
 
 twisted version
 ===============
-tx_dns.py
+python tx_dns.tac
 
-create a new domain SET: 
-    domain.tld ip_addr
+
+test and usage
+==============
+
+$ sudo python gevent_dns.py
+
+$ dig google.com
+$ dig @127.0.0.1 google.com
+$ python dns_cli.py add google.com 127.0.0.1
+$ dig @127.0.0.1 google.com
+
